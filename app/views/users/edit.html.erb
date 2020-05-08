@@ -1,0 +1,68 @@
+<div class="main users-edit">
+  <div class="container">
+    <div class="form-heading">アカウント編集</div>
+    <div class="form users-form">
+      <div class="form-body">
+        <% @user.errors.full_messages.each do |message| %>
+          <div class="form-error">
+            <%= message %>
+          </div>
+        <% end %>
+      
+        <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
+          <p>ユーザー名</p>
+          <input name="name" value="<%= @user.name %>">
+          <p>年齢</p>
+          <input name="age" value="<%= @user.age %>">
+          <p>メールアドレス</p>
+          <input name="email" value="<%= @user.email %>">
+          <p>パスワード</p>
+          <input type="password" name="password" value="<%= @user.password %>">
+          <p>自己紹介</p>
+          <textarea name="introduction"><%= @user.introduction %></textarea>
+          <p>アイコン画像</p>
+          <input name="icon_image" type="file">
+          <p>バナー画像</p>
+          <input name="banner_image" type="file">
+          <p>Githubアカウント</p>
+          <input name="github" value="<%= @user.github %>">
+          <p>プログラミングスキル</p>
+          <div class="radio">
+            <div class="radio-title">
+            言語
+            </div>
+            <div class="radio-label-no">
+              <%= label_tag("rd1_1", "未経験", {value: :no, checked: true}) %>
+            </div>
+            <div class="radio-label-yes">
+              <%= label_tag("rd1_2", "半年以上の経験", {value: :yes}) %> <br>
+            </div>
+            <% @skills.each do |skill| %>
+              <div class="radio-name">
+                <%= skill.name %>
+              </div>
+              <% if SkillUser.find_by(user_id: @user.id, skill_id: skill.id) %>
+                <div class="radio-no">
+                  <%= radio_button_tag("rd_#{skill.name}", "no") %>
+                </div>
+                <div class="radio-yes">
+                  <%= radio_button_tag("rd_#{skill.name}", "yes", {checked: true}) %> 
+                </div>
+                <br>
+              <% else %>
+              <div class="radio-no">
+                <%= radio_button_tag("rd_#{skill.name}", "no", {checked: true}) %>
+              </div>
+              <div class="radio-yes">
+                <%= radio_button_tag("rd_#{skill.name}", "yes") %> 
+              </div>
+              <br>
+              <% end %>
+            <% end %>
+            </div>
+          <input type="submit" value="保存">
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="main user-show">
+  <div class="user-image">
+    <img class="banner" src="<%= "/banner_images/#{@user.banner_image}" %>">
+    <img class="icon" src="<%= "/user_images/#{@user.icon_image}" %>">
+  </div>
+  <div class="user">
+      <h2><%= @user.name %></h2> 
+      <% if @user.id == @current_user.id %>
+        <%= link_to("編集", "/users/#{@user.id}/edit") %>
+      <% end %>
+      <p></p>
+      <p>年齢: <%= @user.age %></p>
+      
+
+      <p>Githubアカウント:
+        <% if @user.github %>
+         <%= link_to("https://github.com/#{@user.github}", "https://github.com/#{@user.github}", target: :_blank) %>
+        <% end %>
+      </p>
+
+      <p>自己紹介:
+        <% if @user.introduction %>
+         <%= @user.introduction %>
+        <% end %>
+      </p>
+
+      <p>プログラミングスキル:
+        <% @skills_user.each do |skill| %>
+          <%= skill.skill.name %>
+        <% end %>
+      </p>
+    </div>
+
+  <div class="container">
+    <% if false %>
+    <ul class="user-tabs">
+      <li class="active"><%= link_to("投稿", "/users/#{@user.id}") %></li>
+      <li><%= link_to("いいね!", "/users/#{@user.id}/likes") %></li>
+    </ul>
+    <% end %>
+
+    <% @posts.each do |post| %>
+      <div class="posts-index-item">
+        <div class="post-left">
+          <img class="user-icon" src="<%= "/user_images/#{post.user.icon_image}" %>">
+        </div>
+        <div class="post-right">
+          <div class="post-user-name">
+            <%= link_to(post.user.name, "/users/#{post.user.id}") %>
+          </div>
+          <%= link_to(post.title, "/posts/#{post.id}") %>
+        </div>
+        <div class="post-image">
+          <% if post.post_image %>
+            <%= link_to("/posts/#{post.id}") do %>
+              <img src="<%= "/post_images/#{post.post_image}" %>">
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <%= paginate @posts %>
+  </div>
+</div>
+

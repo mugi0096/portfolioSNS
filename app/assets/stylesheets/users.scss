@@ -1,0 +1,278 @@
+/* users/index ================================ */
+.users-heading {
+    font-weight: 300;
+    margin: 60px 0 20px;
+    font-size: 48px;
+    color: #bcc8d4;
+  }
+  
+  .users-index-item {
+    padding: 20px 30px;
+    background-color: white;
+    overflow: hidden;
+    box-shadow: 0 2px 6px #c1ced7;
+    display: table;
+    width: 100%;
+  }
+
+  .users-search {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 15px;
+  }
+
+  .users-search label {
+    display: inline-block;
+  }
+
+  .users-search input {
+    display: inline-block;
+  }
+
+  .name-search {
+    outline: 0;
+    height: 50px;
+    width: 20%;
+    padding: 0 10px;
+    margin: 5px;
+    border-radius: 2px 0 0 2px;
+    background-color: #eee;
+  }
+
+  .skill-search {
+    outline: 0;
+    height: 50px;
+    width: 25%;
+    padding: 0 10px;
+    margin: 5px;
+    border-radius: 2px 0 0 2px;
+    background-color: #eee;
+  }
+
+  .submit {
+    width: 60px;
+    height: 30px;
+    border-radius: 0 2px 2px 0;
+    background-color: #7fbfff;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 7px;
+    margin: 5px;
+    text-align: center;
+  }
+
+  .search-reset {
+    width: 70px;
+    height: 30px;
+    border-radius: 0 2px 2px 0;
+    background-color: #7fbfff;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 7px;
+    margin: 5px;
+    text-align: center;
+  }
+
+  .submig:hover {
+    color: #666;
+  }
+  
+  .user-left img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px #c1ced7;
+    object-fit: cover;
+  }
+  
+  .user-name a {
+    font-weight: 1000;
+  }
+  
+  .user-name a:hover {
+    color: #3ecdc6;
+  }
+  
+  .user-left {
+    float: left;
+    width: 10%;
+  }
+  
+  .user-right {
+    width: 90%;
+    padding-left: 25px;
+    text-align: left;
+    display: table-cell;
+    vertical-align: middle;
+  }
+  
+  /* users/show ================================ */
+  .user-show {
+    text-align: center;
+    //max-width: 900px;
+    width: 100%;
+    margin: auto;
+  }
+  
+  .user {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  
+  .user-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  .banner {
+    width: 1280px;
+    height: 490px;
+    //width: 100%;
+    padding: 0px;
+    margin: 0px;
+    object-fit: cover;
+    //z-index: 0;
+  }
+
+  .icon {
+    //z-index: 10;
+    position: absolute;
+    //top: 90%;
+    //left: 50%;
+    top: 370px;
+    left: 560px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto;
+    object-fit: cover;
+    text-align: center;
+  }
+  
+  .user h2 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  
+  .user p {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+  
+  .user a {
+    color: #8899a6;
+    text-decoration: underline;
+    font-weight: 200;
+  }
+  
+  /*
+  .user span {
+    color: #afb6bf;
+    font-weight: 200;
+    padding: 0 6px 0 8px;
+  }
+  */
+  
+  .user-tabs {
+    margin-top: 40px;
+    background-color: white;
+    overflow: hidden;
+    box-shadow: 0 2px 6px #c1ced7;
+  }
+  
+  .user-tabs li {
+    float: left;
+  }
+  
+  .user-tabs li.active {
+    border-bottom: 2px solid #3ecdc6;
+  }
+  
+  .user-tabs li.active a {
+    color: #57575f;
+  }
+  
+  .user-tabs a {
+    display: inline-block;
+    padding: 16px 30px;
+    color: #afb6bf;
+  }
+
+  .skill-btn-yes {
+    color: #8899a6;
+  }
+  
+  .skill-btn-no {
+    color: #ffcc25;
+  }
+
+  .fa {
+    font-size: 16px;
+    margin-right: 3px;
+  }
+  
+  
+  /* users/new, users/edit ================================ */
+  .users-form input {
+    margin-bottom: 15px;
+  }
+  
+  .users-form textarea {
+    margin-bottom: 15px;
+  }
+
+  .radio{
+    width: 100%;
+    width: auto;
+    margin: auto;
+    margin-top: 10%;
+  }
+
+  .radio-title {
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+    margin: 0px;
+  }
+
+  .radio-label-no {
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+  }
+
+  .radio-label-yes {
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+  }
+
+  .radio-name {
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+    margin: 5px;
+  }
+
+  .radio-no {
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+    padding-left: 10%;
+  }
+
+  .radio-yes {
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+    padding-left: 10%;
+  }
+  

@@ -1,0 +1,26 @@
+<div class="main posts-new">
+  <div class="container">
+    <h1 class="form-heading">投稿する</h1>
+      <div class="form">
+        <div class="form-body">
+          <% @post.errors.full_messages.each do |message| %>
+            <div class="form-error">
+              <%= message %>
+            </div>
+          <% end %>
+          
+          <%= form_tag("/posts/create", {multipart: true}) do %>
+            <p>タイトル</p>
+            <textarea name="title"><%= @post.title %></textarea>
+            <p>リンク</p>
+            <input name="link" value="<%= @post.link %>">
+            <p>説明</p>
+            <textarea name="description"><%= @post.description %></textarea>
+            <p>画像</p>
+            <input name="post_image" type="file">
+            <input type="submit" value="投稿">
+          <% end %>
+        </div>
+      </div>
+  </div>
+</div>

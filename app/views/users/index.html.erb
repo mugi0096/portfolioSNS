@@ -1,0 +1,38 @@
+<div class="main users-index">
+  <h1 class="users-heading">ユーザー一覧</h1>
+  <div class="container">
+    <div class="users-search">
+      <%= form_tag("/users/index", method: "get") do %>
+        <div class="name-search">
+          <%= label_tag :name, "名前" %><%= text_field_tag :name, params[:name] %>
+        </div>
+        <div class="skill-search">
+        <%= label_tag :skill, "スキル" %>
+        <%= select_tag :skill, options_for_select(Skill.all_names), include_blank: true %>
+        </div>
+        <div class="submit">
+          <p><%= submit_tag "検索" %></p>
+        </div>
+        <div class="search-reset">
+          <p><%= link_to("検索リセット", "/users/index") %></p>
+        </div>
+      <% end %>
+    </div>
+    <% @users.each do |user| %>
+      <div class="users-index-item">
+        <div class="user-left">
+          <img src="<%= "/user_images/#{user.icon_image}" %>">
+        </div>
+        <div class="user-right">
+          <%= link_to(user.name, "/users/#{user.id}") %> <br>
+          年齢: <%= user.age %><br>
+          スキル： 
+          <% SkillUser.where(user_id: user.id).each do |skill| %>
+            <%= skill.skill.name %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <%= paginate @users %>
+  </div>
+</div>
